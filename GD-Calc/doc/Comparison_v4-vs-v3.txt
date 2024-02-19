@@ -1,0 +1,58 @@
+GD-Calc runtime comparison, version v4 vs v3
+
+v4: https://codeocean.com/capsule/8614002/tree/v4
+
+v3: Replace gdc.m, gdc_engine.p, and gdc_eff.m with previous versions from https://codeocean.com/capsule/8614002/tree/v3
+
+
+Notes:
+- v4 cannot be run in Code Ocean because it requires MATLAB R2022a or later; Code Ocean has not yet installed R2022a.
+- Test system: Thinkmate VSX R5 540V4
+  Six-Core Intel Xeon Processor E5-1650 v4 3.60GHz 15MB Cache 128GB RAM
+- gdc_demo16 cannot be tested with v3 because the inc_order argument for gdc.m must be logical (true|false) in v3.
+- The Energy Balance (for nonabsorbing gratings) provides a measure of numeric precision. It is not indicative of calculation accuracy because the algorithms satisfy energy conservation even the results are inaccurate.
+
+
+Runtime (sec) 
+                v3               v4
+gdc_demo1a      0.799427         0.430205
+gdc_demo1b      0.692213         0.580278
+gdc_demo1c      0.971507         0.834905
+gdc_demo2       0.985089         0.514234
+gdc_demo3       2.761772         2.199166
+gdc_demo4       2.491557         2.241506
+gdc_demo5       1.112470         0.768028
+gdc_demo6       9.082078         6.647771
+gdc_demo7       10.186011        6.679665
+gdc_demo8       13.274446        8.254584
+gdc_demo9       0.510802         0.146231
+gdc_demo10      0.181923         0.125617
+gdc_demo11      1.021490         0.513910
+gdc_demo12      16.829154        9.417537
+gdc_demo13      0.394917         0.182934
+gdc_demo14      40.863788        27.849528
+gdc_demo15      25.817864        7.302794
+gdc_demo16      
+gdc_demo17      40.415370        5.433096
+
+
+Energy Balance
+
+gdc_demo1a       v3             --4.7207e-13 -6.4415e-13 -5.4245e-13 -5.5667e-13
+                                -4.7162e-13 -6.4504e-13
+                 v4             -3.9968e-15  2.3315e-15 -1.1102e-15 -8.8818e-16
+                                -3.9968e-15  2.1094e-15
+gdc_demo1b       v3             -1.8163e-12  7.3264e-12   2.755e-12   2.755e-12
+                 v4             9.1305e-13 -9.3126e-13 -9.1038e-15 -9.1038e-15
+gdc_demo2        v3             6.6391e-14
+                 v4             9.1038e-15
+gdc_demo3        v3             1.0125e-13  1.2701e-13
+                 v4             -3.5527e-15 -3.7748e-15
+gdc_demo4        v3             -1.7808e-12  1.5055e-12
+                 v4             -1.8208e-14 -7.5273e-14
+gdc_demo5        v3             1.1957e-12
+                 v4             -1.0214e-14
+gdc_demo10       v3             1.7164e-13  1.8652e-13
+                 v4             6.2395e-14   7.816e-14
+gdc_demo12       v3             3.3307e-14
+                 v4             9.3259e-15

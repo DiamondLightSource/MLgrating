@@ -1,0 +1,161 @@
+GD-Calc change notes
+https://kjinnovation.com/
+
+************************************************************************
+July 21, 2022
+Major revision/upgrade of all algorithms, code, documentation, demo scripts.
+See Comparison_v4-vs-v3 for comparison of runtime and data precision vs prior version.
+
+************************************************************************
+Aug 1, 2019
+Restore all code files via upload to replace versions edited in CodeOcean.
+(File timestamp info is lost when edited in CodeOcean.)
+
+************************************************************************
+July 29,2019
+Put Code Ocean url (https://doi.org/10.24433/CO.7479617.v2) in m all files.
+Changed output graphics file type from tif to png.
+
+************************************************************************
+July 13, 2019
+*.nk:
+	- Updated url to IMD download.
+gdc_plot.m:
+	- Add max_elements input; don't use interactive questdlg to override default limit.
+gdc_demo*.m:
+	- Modified for batch mode (non-interactive) and to use Code Ocean directories (code, data, results).
+	- Put in publication doi's (demo's 1...8, 12).
+	- Reduce number of plot elements to allow plotting (demo's 3, 5, 6, 7).
+	- Demonstrate video & spreadsheet output in demo9.
+read_nk.m:
+	- Replace '\' with '/'.
+Uploaded to Code Ocean.
+
+************************************************************************
+June 13, 2017
+gdc_plot:
+	- Changed default plot behavior.
+	- Apply alpha (transparency) to patch edges as well as faces.
+read_nk:
+	- Updated web link to nk files.
+	- Put in fclose.
+gdc_engine:
+	- Generate error if exponential overflows (for thick homogeneous layer).
+gdc.m
+	- Added note about exponential overflow error in header comments.
+gdc_eff (dated 02/04/2017)
+	- Correction for case when substrate and/or superstrate permittivity is not real-valued.
+gdc_power (new file, dated 02/04/2017)
+	- Compute internal power flux in a diffraction grating.
+
+************************************************************************
+April 17, 2016
+Upgrades to gdc_plot.m:
+  - Added output arg's.
+  - Changed default color assignment.
+  - Fixed plot clipping.
+New demo: gdc_demo15.m (EUV patterned-multilayer grating)
+
+************************************************************************
+March 16, 2016
+Upgraded gdc.m gdc_engine.p with all_inc_order and full_field options
+(multi-wave incident fields, internal field calculation).
+Revised gdc_eff.m to work with all_inc_order.
+Revised gdc_plot.m; now works with 1-arg call: gdc_plot(grating).
+Revised show_progress interface (as gdc argument, not grating data field).
+Significantly revised gdc_demo9.m (mainly the graphics).
+New demo's (for full_field): gdc_demo12.m, gdc_demo13.m, gdc_demo14.m,
+and accessory function EH_map.m.
+
+************************************************************************
+Feb. 10, 2016
+Discontinued product sale on software.kjinnovation.com. Files updated and ported to kjinnovation.com.
+In gdc.m: Display of progress bar can be controlled with grating.show_progress.
+
+************************************************************************
+April 22, 2015
+Revised product description.
+
+************************************************************************
+July 12, 2010
+Rebuilt gdc_demo_engine.p with MATLAB R2010a.
+
+************************************************************************
+Nov. 28, 2008
+Uploaded gdc_demo_engine_R2007a.p (for older Matlab versions)
+
+************************************************************************
+Sept.  17, 2008
+GD-Calc.pdf: Change (E)^2 to |E|^2 in Eq's 4.35-39.
+
+************************************************************************
+Jan. 30, 2008
+gdc_demo_engine.p rebuilt with MATLAB R2007b.
+
+************************************************************************
+Feb. 5, 2007
+GD-Calc price change (from $450 to $550).
+
+************************************************************************
+Sept. 22, 2006
+Put trademark registration symbol on "GD-Calc" in GD-Cal_Intro.pdf, GD-Cal_Demo.pdf, GD-Cal.pdf
+
+************************************************************************
+June 7, 2006
+Updated GD-Calc.pdf:
+	Equation D.3 was in error; added equations D.4-6.
+	Minor notational correction in equations 17.11-18.
+************************************************************************
+April 27, 2006
+Added MATLAB Central link to comment header in gdc.m.
+
+************************************************************************
+April 14, 2006
+Revised html page layout on download page.
+Price change (from $350 to $450).
+
+************************************************************************
+March 8, 2006
+Updated GD-Calc_Demo.pdf and GD-Calc.zip.
+Error correction: In GD-Calc_Demo.pdf, Eq 7, the first occurences of eff1 and eff2 should not be squared.
+(The comment header in gdc_calc.m has the correct equation.)
+
+************************************************************************
+Feb. 24, 2006
+Updated GD-Calc.zip to include Feb. 13 changes (GD-Calc_Intro.pdf, gdc_intro.m).
+
+************************************************************************
+Feb. 13, 2006
+Updated GD-Calc_Intro.pdf and gdc_intro.m.
+
+************************************************************************
+Jan. 30, 2006
+
+Forthcoming product announcement: multidimensional interpolation code
+
+************************************************************************
+Nov. 5, 2005
+
+index.htm
+
+gdc.m, gdc_eff.m, gdc_plot.m, gdc_demo*.m, circle_partition.m
+comment corrections (GD-Calc.pdf and GD-Calc_Demo.pdf reference citations)
+
+gdc_plot.m
+comment update re MATLAB plotting bug work-around
+
+plot_bug2.m
+Removed. (fixed as of MATLAB Version 7.1.0 (R14), SP3)
+
+GD-Calc_Demo.pdf, GD-Calc_Intro.pdf, gdc_demo3.m, gdc_demo4.m, gdc_demo11.m
+Restate diagonal truncation condition equivalently as |m1|+|m2|<=m_max.
+
+GD-Calc_Demo.pdf
+minor change in Demo 9 tutorial
+
+GD-Calc_Intro.pdf
+page footer
+
+************************************************************************
+Sept. 27, 2005
+initial upload

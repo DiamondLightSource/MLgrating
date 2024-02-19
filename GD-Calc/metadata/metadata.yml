@@ -1,0 +1,19 @@
+metadata_version: 1
+name: Grating Diffraction Calculator (GD-Calc ®)
+description: "GD-Calc is a MATLAB-based tool for diffraction grating simulation, which
+  has utility for a variety of grating types and applications, e.g.:\n\t- surface
+  relief gratings\n\t- multilayer gratings\n\t- biperiodic gratings\n\t- binary/lamellar
+  or blazed kinoform gratings\n\t- subwavelength gratings (e.g., photonic crystals,
+  metamaterials)\n\t- polarization gratings (e.g., form birefringence, wire-grid polarizers)\n\t-
+  moth-eye antireflection structures (e.g. for solar cells or high-power lasers)\n\t-
+  micro optics, nano optics, diffractive optics (e.g. phase-Fresnel structures)\nMany
+  illustrative applications of GD-Calc can be found in the peer-reviewed literature
+  by searching for “GD-Calc” in Google Scholar. This code capsule is not directly
+  linked to a publication but is provided as a computation utility for other publication-related
+  capsules. References to background publications are cited in the demo scripts.\n\n(Note:
+  Requires MATLAB version R2022a or later, will not run under Code Ocean's currently
+  installed MATLAB versions.)"
+authors:
+- name: Kenneth C. Johnson
+  affiliations:
+  - name: KJ Innovation
