@@ -26,6 +26,7 @@ elseif isequal(num_mat,2)
     pmt = [{1} perm {1}];  % grating material permittivities 
                         % (including 1 for permittivity in vacuum)
 elseif isequal(num_mat,1)
-    pmt = [{1} perm {1} {1}];
+    pmt = [{1} perm {1} {1}];% grating material permittivities 
+                        % (including 1 for permittivity in vacuum)
 end
     
