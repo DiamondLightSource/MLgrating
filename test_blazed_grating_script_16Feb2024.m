@@ -10,15 +10,16 @@ alpha=0.49; % blaze angle in degrees measured relative to surface
 apex = 175.62; % apex angle in degrees
 num_slices=5; % number of slices defined to approximate %
                 % sloping groove profile using staircase approximation
-num_periods=1; % number of multilayer periods 
+num_periods=10; % number of multilayer periods 
                 % (use 1 for single-layer coating)
-d=30; % multilayer d-spacing in nm (or thickness of the single-layer)
-gamma_d=1; % ratio of 1st layer thickness in multilayer coating to the 
+d=12; % multilayer d-spacing in nm (or thickness of the single-layer)
+gamma_d=0.65; % ratio of 1st layer thickness in multilayer coating to the 
             % 2nd layer thickness in multilayer (use 1 for single-layer
             % coating)
             
 % define PGM parameters
-energy = 125:1000:10000; % in eV
+% energy = 125:1000:10000; % in eV
+energy = logspace(log10(125),log10(10000),10); % in eV
 PGM.cff = 2;
 PGM.order = 1; % this defines the simulated diffraction order efficiency
 PGM.energy=energy(1); % sets PGM.energy to the first element in 'energy'
@@ -32,17 +33,17 @@ datadir='./RefInds/';
 % for a single layer coating only two materials need to be defined (the
 % substrate material followed by the coating material)
 materials={};
-% materials = {'Si','C','Cr'};
-materials = {'Si','Pt'};
+materials = {'Si','C','Cr'};
+% materials = {'Si','Pt'};
 
 % convert optical constants from CXRO website to format required by GD-Calc
 % (this does not need to be run every time simulations are performed)
-for i=numel(materials)
+for i=1:numel(materials)
     MLgrating_write_nk(datadir,materials{i});
 end
 
 % define maximum diffraction order that is simulated
-m_max = 17; % equivalent to REFLEC maximum
+m_max = 10; % equivalent to REFLEC maximum
 
 % find number of energies
 numE=numel(energy);
@@ -84,6 +85,7 @@ xlabel('Energy (eV)')
 ylabel('-1st order grating efficiency')
 grid on
 legend('sigma','pi')
+axis([min(energy) max(energy) min(eff(1,:)) max(eff(1,:))])
 
 % end timer
 toc

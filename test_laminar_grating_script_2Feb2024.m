@@ -38,7 +38,7 @@ materials = {'Si','Au'};
 
 % convert optical constants from CXRO website to format required by GD-Calc
 % (this does not need to be run every time simulations are performed)
-for i=numel(materials)
+for i=1:numel(materials)
     MLgrating_write_nk(datadir,materials{i});
 end
 
