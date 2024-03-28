@@ -53,10 +53,14 @@ if x > D/2
     throw('Value of alpha is too small!')
 end
 
+% small correction to the multilayer period to ensure it is defined 
+% perpendicular to the blazed surface
+d_sinalpha=d*sind(alpha);
+
 % calculate arrays containing heights defining multilayer structure (where
 % a height of zero corresponds to the top surface of the substrate)
 [ML_thickness,H,h_bottoms,h_tops,heights,thicknesses] = ...
-    MLgrating_def_coat(h,num_slices,d,gamma_d,num_periods);
+    MLgrating_def_coat(h,num_slices,d_sinalpha,gamma_d,num_periods);
     
 % find total number of strata
 num_strata=numel(heights);
