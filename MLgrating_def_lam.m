@@ -109,7 +109,7 @@ for j=1:num_strata
         % calculate boundary on positive side of negative gradient section
         % relative to boundary on positive side of 'top' of groove profile
         dx=x-(heights(j)-h_bottoms(k)).*x/h;
-        if dx < 0;dx = 0;end % ensure dx is never negative
+        if dx < 0;dx = 0;end %  ensure dx is never negative
         stripe.c1 = x1+dx; % stripe's boundary on positive side
         if isequal(k,1)
             stripe.pmt_index = 2; % substrate's permittivity index
