@@ -47,8 +47,8 @@ h = D./((1./tand_alpha)+(1./tand_antiblaze)); % grating height
 % calculate horizontal width of blaze portion of profile in units of D
 x = h./(tand_alpha.*D);
 
-% if alpha is defined too small so grating height is less than h then throw
-% exception
+% if alpha is defined too small so grating height is less than h then 
+% throw exception
 if x > D/2
     throw('Value of alpha is too small!')
 end
