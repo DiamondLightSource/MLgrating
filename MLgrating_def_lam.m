@@ -40,11 +40,14 @@ tand_alpha=tand(alpha);
 % calculate horizontal width of blaze portion of profile in units of D
 x = h./(tand_alpha.*D);
 
-% if alpha is defined too small so grating height is less than h then throw
-% exception
+% if alpha is defined too small so grating height is less than h then 
+% throw exception
 if x > D/2
     throw('Value of alpha is too small!')
 end
+
+% define stripe's boundary on positive side of 'top' of groove profile
+x1=+0.5-gamma_D+x;
 
 % calculate arrays containing heights defining multilayer structure (where
 % a height of zero corresponds to the top surface of the substrate)
@@ -63,7 +66,8 @@ for j=1:num_strata
     stripe_min=sum(heights(j)-h > h_bottoms)+1;
     i=1;
     for k = stripe_max:-1:stripe_min
-        stripe.c1 = -0.5+(heights(j)-h_bottoms(k)).*x/h; % stripe's boundary on positive side
+        % stripe's boundary on positive side
+        stripe.c1 = -0.5+(heights(j)-h_bottoms(k)).*x/h;
         if isequal(k,numel(h_bottoms))
             stripe.pmt_index = 1; % Vacuum's permittivity index
         elseif mod(k,2)
@@ -96,13 +100,17 @@ for j=1:num_strata
             stripe.pmt_index = 4; % 2nd layer's permittivity index
         end
     end
-    stripe.c1 = -0.5+x+(1-gamma_D); % 1st stripe's boundary on positive side
+    stripe.c1 = x1; % set stripe's boundary on positive side
     stratum.stripe{i} = stripe;
     stripe={};
     i=i+1;
     % negative gradient section
     for k = stripe_min:stripe_max
-        stripe.c1 = +0.5-gamma_D+2*x-(heights(j)-h_bottoms(k)).*x/h; % stripe's boundary on positive side
+        % calculate boundary on positive side of negative gradient section
+        % relative to boundary on positive side of 'top' of groove profile
+        dx=x-(heights(j)-h_bottoms(k)).*x/h;
+        if dx < 0;dx = 0;end % ensure dx is never negative
+        stripe.c1 = x1+dx; % stripe's boundary on positive side
         if isequal(k,1)
             stripe.pmt_index = 2; % substrate's permittivity index
         elseif mod(k,2)
@@ -133,7 +141,7 @@ for j=1:num_strata
         stripe.pmt_index = 4; % 2nd layer's permittivity index
         end
     end   
-    stripe.c1 = 0.5; % second stripe's boundary on positive side
+    stripe.c1 = 0.5; % final stripe's boundary on positive side
     stratum.stripe{i} = stripe;
     stripe={};
     grating.stratum{end+1} = stratum;
