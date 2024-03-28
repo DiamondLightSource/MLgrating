@@ -53,8 +53,8 @@ if x > D/2
     throw('Value of alpha is too small!')
 end
 
-% small correction to the multilayer period to ensure it is defined 
-% perpendicular to the blazed surface
+% small correction to the multilayer period to ensure it is 
+% defined perpendicular to the blazed surface
 d_sinalpha=d*sind(alpha);
 
 % calculate arrays containing heights defining multilayer structure (where
