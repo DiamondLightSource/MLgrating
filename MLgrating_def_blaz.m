@@ -55,7 +55,7 @@ end
 
 % small correction to the multilayer period to ensure it is 
 % defined perpendicular to the blazed surface
-d_sinalpha=d*sind(alpha);
+d_sinalpha=d*cosd(alpha);
 
 % calculate arrays containing heights defining multilayer structure (where
 % a height of zero corresponds to the top surface of the substrate)
