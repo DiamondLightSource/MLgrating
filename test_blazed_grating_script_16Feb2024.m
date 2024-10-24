@@ -43,7 +43,7 @@ for i=1:numel(materials)
 end
 
 % define maximum diffraction order that is simulated
-m_max = 10; % equivalent to REFLEC maximum
+m_max = 17; % equivalent to REFLEC maximum
 
 % find number of energies
 numE=numel(energy);
