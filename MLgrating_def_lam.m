@@ -67,7 +67,7 @@ for j=1:num_strata
     i=1;
     for k = stripe_max:-1:stripe_min
         % stripe's boundary on positive side
-        stripe.c1 = -0.5+(heights(j)-h_bottoms(k)).*x/h;
+        stripe.c1 = round(-0.5+(heights(j)-h_bottoms(k)).*x/h,5,"decimals");
         if isequal(k,numel(h_bottoms))
             stripe.pmt_index = 1; % Vacuum's permittivity index
         elseif mod(k,2)
