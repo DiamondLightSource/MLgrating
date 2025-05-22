@@ -73,7 +73,7 @@ for j=1:num_strata
     stripe_min=sum(heights(j)-h > h_bottoms)+1;
     i=1;
     for k = stripe_max:-1:stripe_min
-        stripe.c1 = -0.5+(heights(j)-h_bottoms(k)).*x/h; % stripe's boundary on positive side
+        stripe.c1 = round(-0.5+(heights(j)-h_bottoms(k)).*x/h,7,"decimals"); % stripe's boundary on positive side
         if isequal(k,numel(h_bottoms))
             stripe.pmt_index = 1; % Vacuum's permittivity index
         elseif mod(k,2)
@@ -87,7 +87,7 @@ for j=1:num_strata
     end
     % negative gradient section
     for k = stripe_min:stripe_max
-        stripe.c1 = +0.5-(heights(j)-h_bottoms(k)).*(1-x)/h; % stripe's boundary on positive side
+        stripe.c1 = round(+0.5-(heights(j)-h_bottoms(k)).*(1-x)/h,7,"decimals"); % stripe's boundary on positive side
         if isequal(k,1)
             stripe.pmt_index = 2; % substrate's permittivity index
         elseif mod(k,2)
